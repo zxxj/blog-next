@@ -1,0 +1,25 @@
+.navbar {
+	display: flex;
+	height: 60px;
+	border-bottom: 1px solid #f1f1f1;
+	justify-content: center;
+	align-items: center;
+	background-color: #000;
+
+	.logo {
+		font-size: 30px;
+		font-weight: bold;
+	}
+
+	.navs {
+		display: flex;
+		.item {
+			margin: 0 20px;
+			text-decoration: none;
+		}
+
+		.active {
+			color: #fff;
+		}
+	}
+}
