@@ -21,6 +21,18 @@ const Login = (props: Iprops) => {
     verify: '',
   });
 
+  // 关闭登录弹窗
+  const handleClose = () => {};
+
+  // 点击获取验证码
+  const handleGetVerify = () => {};
+
+  // 点击登录
+  const handleLogin = () => {};
+
+  // 点击第三方登录
+  const handleOtherLogin = () => {};
+
   return isShow ? (
     <div className={styles.loginBox}>
       {/* 登录表单 */}
@@ -29,7 +41,9 @@ const Login = (props: Iprops) => {
           {/* 登录模式 */}
           <div className={styles.loginMode}>手机号登录</div>
           {/* 关闭图标 */}
-          <div className={styles.closeBtn}>x</div>
+          <div className={styles.closeBtn} onClick={handleClose}>
+            x
+          </div>
         </div>
 
         {/* 手机号 */}
@@ -38,16 +52,24 @@ const Login = (props: Iprops) => {
         {/* 验证码 */}
         <div className={styles.verifyBox}>
           <Input className={styles.verify} value={form.verify} />
-          <span className={styles.getVerify}>获取验证码</span>
+          <span className={styles.getVerify} onClick={handleGetVerify}>
+            获取验证码
+          </span>
         </div>
 
         {/* 登录按钮 */}
-        <Button type="primary" className={styles.loginBtn}>
+        <Button
+          type="primary"
+          className={styles.loginBtn}
+          onClick={handleLogin}
+        >
           登 录
         </Button>
 
         {/* github三方登录 */}
-        <div className={styles.otherLogin}>使用 Github 登录</div>
+        <div className={styles.otherLogin} onClick={handleOtherLogin}>
+          使用 Github 登录
+        </div>
 
         {/* 隐私协议 */}
         <div className={styles.agreement}>
