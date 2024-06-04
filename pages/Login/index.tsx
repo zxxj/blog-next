@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './style.module.scss';
 import { Input, Button } from 'antd';
+import CountDown from 'components/CountDown';
 
 interface Iprops {
   isShow: boolean;
@@ -21,11 +22,23 @@ const Login = (props: Iprops) => {
     verify: '',
   });
 
+  // 是否显示验证码倒计时组件
+  const [isShowVerifyCode, setIsShowVerifyCode] = useState(false);
+
   // 关闭登录弹窗
-  const handleClose = () => {};
+  const handleClose = () => {
+    close && close();
+  };
 
   // 点击获取验证码
-  const handleGetVerify = () => {};
+  const handleGetVerify = () => {
+    setIsShowVerifyCode(true);
+  };
+
+  //
+  const handleCountDownEnd = () => {
+    alert('aaa');
+  };
 
   // 点击登录
   const handleLogin = () => {};
@@ -53,7 +66,11 @@ const Login = (props: Iprops) => {
         <div className={styles.verifyBox}>
           <Input className={styles.verify} value={form.verify} />
           <span className={styles.getVerify} onClick={handleGetVerify}>
-            获取验证码
+            {isShowVerifyCode ? (
+              <CountDown time={10} onEnd={handleCountDownEnd} />
+            ) : (
+              '获取验证码'
+            )}
           </span>
         </div>
 
